@@ -3,7 +3,9 @@
 #
 # 修改默认参数（不同设备拷贝到相应 *.sh)          by: TurBoTse
 #####################################################################
-lan_ip="192.168.101"                          # LAN 地址 别写后面的 .1
+lan_ip="192.168.101.10"                          # LAN 地址
+dhcp_beg="192.168.101.100"                        # LAN DHCP开始地址
+dhcp_end="192.168.101.244"                       # LAN DHCP结束地址
 wlan_2g_ssid="lt0418"                              # 2G 无线名称
 wlan_5g_ssid="lt0418_5G"                           # 5G 无线名称
 wlan_2g_psk="mayi5147"                            # 2G WIFI密码最少8位 空白为不设置
@@ -14,7 +16,11 @@ default_file="./user/shared/defaults.h"             # 默认配置文件
 version_time=$(date +%Y%m%d)                        # 更新时版本号时间: 20210101
 
 echo "修改 LAN IP 地址"
-sed -i "s/192.168.2/$lan_ip/g" $default_path/defaults.h
+sed -i "s/192.168.2.1/$lan_ip/g" $default_path/defaults.h
+
+echo "修改 LAN DHCP 地址"
+sed -i "s/192.168.2.100/$dhcp_beg/g" $default_path/defaults.h
+sed -i "s/192.168.2.244/$dhcp_end/g" $default_path/defaults.h
 
 echo "修改 2G 无线名称"
 sed -i 's/DEF_WLAN_2G_SSID	BOARD_PID "_%s"/DEF_WLAN_2G_SSID	"'$wlan_2g_ssid'"/g' $default_file
@@ -31,5 +37,5 @@ sed -i 's/DEF_WLAN_5G_PSK		"1234567890"/DEF_WLAN_5G_PSK		"'$wlan_5g_psk'"/g' $de
 echo "更新版本号时间"
 sed -i "s/FIRMWARE_BUILDS_REV=.*/FIRMWARE_BUILDS_REV=$version_time/g" ./versions.inc
 
-#echo "设置为中继模式"
-#echo "#define BOARD_ROLE_REPEATER	1" >> ./configs/boards/RT-AC1200GU/board.h
+echo "设置为中继模式"
+echo "#define BOARD_ROLE_REPEATER	1" >> ./configs/boards/RT-AC1200GU/board.h
