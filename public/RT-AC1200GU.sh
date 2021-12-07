@@ -45,5 +45,5 @@ sed -i 's/DEF_WLAN_5G_PSK		"1234567890"/DEF_WLAN_5G_PSK		"'$wlan_5g_psk'"/g' $de
 echo "更新版本号时间"
 sed -i "s/FIRMWARE_BUILDS_REV=.*/FIRMWARE_BUILDS_REV=$version_time/g" ./versions.inc
 
-echo "设置为中继模式"
-echo "#define BOARD_ROLE_REPEATER	1" >> ./configs/boards/RT-AC1200GU/board.h
+#echo "设置为中继模式"
+#echo "#define BOARD_ROLE_REPEATER	1" >> ./configs/boards/RT-AC1200GU/board.h
