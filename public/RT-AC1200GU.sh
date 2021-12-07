@@ -6,8 +6,8 @@
 lan_ip="192.168.101.10"                          # LAN 地址
 dhcp_beg="192.168.101.100"                        # LAN DHCP开始地址
 dhcp_end="192.168.101.244"                       # LAN DHCP结束地址
-wlan_2g_ssid="lt0418"                              # 2G 无线名称
-wlan_5g_ssid="lt0418_5G"                           # 5G 无线名称
+wlan_2g_ssid="lt0418_2G"                              # 2G 无线名称
+wlan_5g_ssid="lt0418"                           # 5G 无线名称
 wlan_2g_psk="mayi5147"                            # 2G WIFI密码最少8位 空白为不设置
 wlan_5g_psk="mayi5147"                            # 5G WIFI密码最少8位 空白为不设置
 default_path="./user/shared"                        # 默认配置路径
